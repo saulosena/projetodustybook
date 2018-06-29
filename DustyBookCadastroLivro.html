@@ -11,27 +11,29 @@
   
   <div class="grid-item item10">CadastroLivro</div>
   <div class="grid-item item11">
-   <form action="" method="POST">
+   <form action="DustyBookCadastroLivro.php" method="POST" enctype="multipart/form-data">
          <br>
 		 <br>
 		 Nome Livro:<br>
-		 <input type="text" name="nome,livro"><br>
+		 <input type="text" name="nomel" required><br>
 		 Autor:<br>
-         <input type="text" name="autor,livro"><br>
+         <input type="text" name="autorl" required><br>
 		 Ano de Edicao<br>
-		 <input type="number" name="Anoed,livro"><br>
+		 <input type="number" name="anoedl" required><br>
 		 Edicao:<br>
-         <input type="number" name="ed,livro"><br>	
+         <input type="number" name="edl"required><br>	
 		 Valor:<br>
-		 <input type="double" name="valor,livro"><br>
-		 Foto Livro:<br>
-		<input type="file" name="nome" size="10"><br>
+		 <input type="double" name="valorl"required><br>
+		 
+		 Materia:<br>
+         <input type="text" name="material"required><br>
 		 Tema:<br>
-         <input type="number" name="tema,livro"><br>
+         <input type="text" name="temal"required><br>
          Comentarios:<br>
-         <textarea type="text" name="comentario,livro"  rows="20" cols="70"></textarea><br>	
-         Email para contato:<br>
-		 <input type="text" name="email,usuario"required><br>		 
+         <textarea type="text" name="comentariol"  rows="20" cols="70" required></textarea><br>	
+		 Foto Livro:<br>
+		 <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
+		 <input type="file" name="fotol"><br> 
 		 <br>
 		 <br>
 		 <input type="submit" value="Cadastrar">
@@ -39,9 +41,9 @@
   <br><br>
   
   <ul>
-      <li> <a href="DustyBookPesquisaComentarios.html" target="_blank">Dicas</a> </li>
+     <li> <a href="DustyBookDescricaoUsuario.php" target="_blank">Meus Dados</a> </li>
 	  <li> <a href="DustyBookSobre.html" target="_blank">Sobre</a></li>
-	  <li> <a href="DustyBookPesquisa.html" target="_blank">Livros</a> </li>
+	  <li> <a href="DustyBookPesquisa.php" target="_blank">Livros</a> </li>
 	  <li> <a href="DustyBookPaginaPrincipal.html" target="_blank">Home </a></li>
 	 </ul> 
   
