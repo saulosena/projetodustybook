@@ -21,16 +21,17 @@ include_once("DustyBookConexao.php");
   </div>
 
   <div class="grid-item item2">
-   <ul class="nav navbar-nav">
-    <li> <a href="DustyBookPesquisaComentarios.html"><b><font color="#ffffff">Dicas</font></b></a> </li>
-	  <li> <a href="DustyBookSobre.html"><b><font color="#ffffff">Sobre</font></b></a></li>
-	  <li> <a href="https://www.facebook.com/"><b><font color="#ffffff">Dustyface</font></b></a></li>
-	  <li> <a href="DustyBookPaginaPrincipal.html"><b><font color="#ffffff">Home</font></b></a></li>
+   <ul class="nav navbar-nav"> 
+   <li> <a href="DustyBookPaginaPrincipal.php"><b><font color="#ffffff">Home</font></b></a></li>
+   <li><a href="DustyBookPesquisaSession2.php"><b><font color="#ffffff">Livros</font></b></a></li>
+   <li> <a href="DustyBookPesquisaComentarioSession2.php"><b><font color="#ffffff">Dicas</font></b></a> </li>
+   <li> <a href="DustyBookSobre.html"><b><font color="#ffffff">Sobre</font></b></a></li>
+	  
 	 </ul>
   </div>
 
   <div class="grid-item item3">
-     <form action="DustyBookPesquisa.php" method="POST">
+     <form action="DustyBookPesquisaSession.php" method="POST">
          <p><b>Pesquisar Livro</b></p>
 		     <br><b>Nome do livro:</b><br>
 		     <input type="text" name="nome"><br>
@@ -52,7 +53,7 @@ include_once("DustyBookConexao.php");
   <br>
   <br>
   <br>
-   <form action="DustyBookPesquisaComentarios.php" method="POST">
+   <form action="DustyBookPesquisaComentarioSession.php" method="POST">
 
 		 <p>Digite a disciplina<br>
 		 que mostraremos dicas de nossos usuarios</p>
@@ -73,30 +74,76 @@ include_once("DustyBookConexao.php");
         <form action="DustyBookLogin.php" method="POST">
 		<b>Dustylogin</b><br><br>
 		 <b>Email</b><br>
-		 <input type="text" name="login"><br>
+		 <input type="text" name="login" required><br>
 		 <b>Senha</b><br>
-		 <input type="text" name="senha"><br>
+		 <input type="password" name="senha"required><br>
 		 <button class="button">Entrar</button>
    </form><br>
-		 <form action="DustyBookCadastroUsuario.html" method="POST">
+		 <form action="DustyBookCadastroUsuarioForm.php" method="POST">
 		 <p>Cadastre-se agora e aproveite<br>as melhores ofertas do<br>
 		 <b>Dusty Book!</b><br>
 		  <button class="button">Cadastrar</button>
           </form>
+  <?php
+  }elseif (isset($_SESSION['adm'])){ 
+           $usuario = $_SESSION['nome'];
+?>     
+		  <p>Bem Vindo<br>
+		  <?php echo $usuario; ?><p>
+		  <form action="DustyBookDescricaoUsuario.php" method="POST">
+		 <p>Meus Dados<br>
+		  <button class="button">Detalhes</button>
+          </form>
+		 <form action="DustyBookCadastroLivro.html" method="POST">
+		 <p>Cadastrar livro para venda<br>
+		  <button class="button">Cadastrar</button>
+          </form>
+		  <form action="DustyBookMeusLivros.php" method="POST">
+		 <p>Meus Livros<br>
+		  <button class="button">Detalhes</button>
+          </form>
+          <form action="DustyBookListaUsuario.php" method="POST">
+		  <p>Usuarios<br>
+		  <button class="button">Listar</button>
+          </form>
+		  <form action="DustyBookCadastroUsuarioForm.php" method="POST">
+		  <p>Cadastrar Usuarios<br>
+		  <button class="button">Cadastrar</button>
+          </form>
+          <form action="DustyBookSugestoesLista.php" method="POST">
+		  <p>Sugestoes<br>
+		  <button class="button">Listar</button>
+          </form>		  
+		  <form action="DustyBookLogout.php" method="POST">
+		  <button class="button">Sair</button>
+          </form>		  
+		  
+		  
+		  
 <?php
   }else { $usuario = $_SESSION['nome'];
 ?>
 		  <p>Bem Vindo<br>
-		  <?php echo $usuario; ?><br><p>
-		  <br>
+		  <?php echo $usuario; ?><p>
+		  <form action="DustyBookDescricaoUsuario.php" method="POST">
+		 <p>Meus Dados<br>
+		  <button class="button">Detalhes</button>
+          </form>
 		 <form action="DustyBookCadastroLivro.html" method="POST">
 		 <p>Cadastrar livro para venda<br>
 		  <button class="button">Cadastrar livro</button>
+          </form>
+		  <form action="DustyBookMeusLivros.php" method="POST">
+		 <p>Meus Livros<br>
+		  <button class="button">Detalhes</button>
           </form>
 		  <br><br>
 		  <form action="DustyBookLogout.php" method="POST">
 		  <button class="button">Sair</button>
           </form>
+		  
+
+		  
 		  
 		  
 <?php }?>

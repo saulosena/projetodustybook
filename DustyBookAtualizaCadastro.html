@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+ <style><title>Dusty Book/Atualiza Dados Usuario</title></style>
+ <link rel="stylesheet" type="text/css" href ="DustyBook.css" />
+ </head>
+<body>
+<div class="grid-container">
+  
+  <div class="grid-item item10">Atualizar Cadastro</div>
+  <div class="grid-item item11">
+  <form action="DustyBookAtualizaCadastro.php" method="POST"  enctype="multipart/form-data">
+         <br>
+		 <br>
+		 Nome:<br>
+		 <input type="text" name="nome" ><br>
+		 Sobre Nome:<br>
+         <input type="text" name="sobrenome" ><br>
+		 Data de Nascimento<br>
+		 <input type="date" name="data,nasc"><br>
+		 Sexo:<br>
+	    <select name="sexo" >
+                       <option type="radio" value= "masculino" > MASCULINO </option>
+                       <option type="radio" value= "feminino" > FEMININO  </option>
+                     </select><br>
+		 Telefone 1:<br>
+         <input type="number" name="telefone1" min='10'  max="11" ><br>	
+		 Telefone 2:<br>
+         <input type="number" name="telefone2" min='10'  max="11"><br>
+		 Endereço:<br>
+		 Rua:<br>
+		 <input type="text" name="endereco" ><br>
+		 Numero:<br>
+		 <input type="number" name="numero" min='1'  max="6"><br>
+		 Complemento:<br>
+         <input type="text" name="complemento" ><br>
+		 Cidade:<br>
+         <input type="text" name="cidade" ><br>	
+         Estado:<br>
+         <input type="text" name="estado" ><br>	
+         Cep:<br>
+         <input type="number" name="cep" min='8'  max="8"><br>	
+         Email:<br>
+         <input type="text" name="email" ><br>			 
+		 Senha:<br>
+         <input type="password" name="senha" ><br>				 
+		 Confirmar Senha:<br>
+         <input type="password" name="confirsenha" ><br>	
+		 <br>
+		 Foto Usuario:<br>
+		 <input type="file" name="imagem"><br> 		 
+		 <br>
+		 <ul class="nav navbar-nav">
+		 <input type="submit" value="Atualizar">
+   </form>
+   </li>   
+   <li>
+    <form action="DustyBookDescricaoUsuario.php">
+	  <input type="submit" value="Cancelar">
+	</form>  
+    </li>
+    </ul>
+
+  </div>
+  </div>
+  
+   
+   </body>
+</html>

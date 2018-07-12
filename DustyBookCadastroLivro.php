@@ -1,6 +1,8 @@
 
 <?php
 include_once("DustyBookConexao.php");
+session_start();
+
 $nomel=$_POST['nomel'];
 $autorl=$_POST['autorl'];
 $edl=$_POST['edl'];
@@ -9,26 +11,26 @@ $material=$_POST['material'];
 $temal=$_POST['temal'];
 $comentariol=$_POST['comentariol'];
 $anoedl=$_POST['anoedl'];
-$idl = NULL;
+$iduser = $_SESSION['id_usuario'];
+$fotol = $_FILES['fotol']['tmp_name'];
 
+if(isset($_FILES['fotol'])){
+	$extensao = strtolower(substr($_FILES['fotol']['name'],-4));
+	$novo_nome = (time()).$iduser.$extensao;
+	$diretorio = "fotos/";
+	
+	move_uploaded_file($_FILES['fotol']['tmp_name'],$diretorio.$novo_nome);	
+}
 
 	
-	if(isset($_FILES['fotol'])){
-	$extensao = strtolower(substr($_FILES['fotol']['name'],-4)); //capiturar extensao do arquivo pelo nome com apenas os 4 ultimos caracteres
-	$nome_foto=md5(time()).$extensao; // redefine o nome do arquivo atraves do tempo com criptografia
-	$diretorio="$ultimo_id.$nome_foto/"; // pasta aonde  vai salvar a foto 
-	
-move_uploaded_file($_FILES['fotol']['tmp_name'],$diretorio);} //efetua upload0
-	
-	
-
-	$query = "INSERT INTO livros VALUES('".$nomel."','".$autorl."','".$edl."','".$valorl."','".$nome_foto."','".$material."','".$temal."','".$comentariol."','".$anoedl."','".$idl."')";
+$query = "INSERT INTO livros (nomel, autorl, edl, valorl, fotol, material, temal, comentariol, anoedl, id_livro, id_usuario)
+                      VALUES('".$nomel."','".$autorl."','".$edl."','".$valorl."','".$novo_nome."','".$material."','".$temal."','".$comentariol."','".$anoedl."', NULL ,'".$iduser."')";
 
 $inserir = mysqli_query($link,$query);
 if ($inserir) {
 
 echo "<script>alert('Livro cadastrado com  sucesso!');";
-echo "location.href='DustyBookPaginaPrincipal.html'</script>";
+echo "location.href='DustyBookPaginaPrincipal.php'</script>";
 } else {
 echo "<script>alert('livro nao cadastrado.');";
 echo "location.href='DustyBookCadastroLivro.html'</script>";

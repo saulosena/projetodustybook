@@ -3,8 +3,9 @@
 <html>
 <head>
 <meta charset="utf-8"/>
- <style><title>Dusty Book/Cadastro Livro</title></style>
- <link rel="stylesheet" type="text/css" href ="DustyBook.css" />
+ <title>Dusty Book/Cadastro Livro</title>
+ <link rel="stylesheet" type="text/css" href ="DustyBook.css">
+ <link href="css/bootstrap.css" rel="stylesheet">
  </head>
 <body>
 <div class="grid-container">
@@ -19,12 +20,11 @@
 		 Autor:<br>
          <input type="text" name="autorl" required><br>
 		 Ano de Edicao<br>
-		 <input type="number" name="anoedl" required><br>
+		 <input type="number" name="anoedl" required min='4'  max="4"><br>
 		 Edicao:<br>
-         <input type="number" name="edl"required><br>	
+         <input type="number" name="edl"required min='1' max="4"><br>	
 		 Valor:<br>
-		 <input type="double" name="valorl"required><br>
-		 
+		 <input type="number" name="valorl"required step = "any"><br>
 		 Materia:<br>
          <input type="text" name="material"required><br>
 		 Tema:<br>
@@ -32,8 +32,7 @@
          Comentarios:<br>
          <textarea type="text" name="comentariol"  rows="20" cols="70" required></textarea><br>	
 		 Foto Livro:<br>
-		 <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
-		 <input type="file" name="fotol"><br> 
+		 <input type="file" name="fotol" required><br> 
 		 <br>
 		 <br>
 		 <input type="submit" value="Cadastrar">
@@ -41,13 +40,11 @@
   <br><br>
   
   <ul>
-     <li> <a href="DustyBookDescricaoUsuario.php" target="_blank">Meus Dados</a> </li>
 	  <li> <a href="DustyBookSobre.html" target="_blank">Sobre</a></li>
-	  <li> <a href="DustyBookPesquisa.php" target="_blank">Livros</a> </li>
-	  <li> <a href="DustyBookPaginaPrincipal.html" target="_blank">Home </a></li>
+	  <li> <a href="DustyBookPesquisaSession2.php" target="_blank">Livros</a> </li>
+	  <li> <a href="DustyBookPaginaPrincipal.php" target="_blank">Home </a></li>
 	 </ul> 
-  
-  
+ 
   </div>
   
    

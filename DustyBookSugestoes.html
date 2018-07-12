@@ -1,43 +1,52 @@
+<!DOCTYPE html>
+<html>
 <head>
 <meta charset="utf-8"/>
- <title>Dusty Book/Sugestoes</title>
- <link rel="stylesheet" type="text/css" href ="DustyBook.css" />
+ <title>Dusty Book/Envio Sugestao</title>
+ <link rel="stylesheet" type="text/css" href ="DustyBook.css">
+ <link href="css/bootstrap.css" rel="stylesheet">
  </head>
 <body>
 <div class="grid-container">
-  
+
   <div class="grid-item item1">
-  <a href="" target="_blank"><img width="230px" height="200px" src="https://scontent.fmcz3-1.fna.fbcdn.net/v/t1.0-9/33384816_2017400728333279_2452622180819664896_n.jpg?_nc_cat=0&oh=d734f9cea5825a08c7689c687e3e2abc&oe=5B821AD1"></a>
-  
+  <a href="DustyBookPaginaPrincipal.html"><img width="230px" height="200px" src="Dusty.jpg"></a>
+
   </div>
-  
+
   <div class="grid-item item2">
-<ul>
-      <li> <a href="DustyBookDescricaoUsuario.php"  target="_self">Meus Dados</a> </li>
-	  <li> <a href="DustyBookSobre.html" target="_blank">Sobre</a></li>
-	  <li> <a href="https://www.facebook.com/" target="_blank">Dustface</a></li>
-	  <li> <a href="DustyBookPaginaPrincipal.html" target="_blank">Home </a></li>
-	 </ul> > 
+   <ul class="nav navbar-nav"> 
+   <li> <a href="DustyBookPaginaPrincipal.php"><b><font color="#ffffff">Home</font></b></a></li>
+   <li><a href="DustyBookPesquisaSession2.php"><b><font color="#ffffff">Livros</font></b></a></li>
+   <li> <a href="DustyBookPesquisaComentarioSession2.php"><b><font color="#ffffff">Dicas</font></b></a> </li>
+   <li> <a href="DustyBookSobre.html"><b><font color="#ffffff">Sobre</font></b></a></li>
+	  
+	 </ul>
   </div>
- 
+
   <div class="grid-item item3">
-    <form action="DustyBookPesquisa.html" method="POST">
-         <form action="DustyBookPesquisa.php" method="POST" target="_self">
-         <p>Pesquisar</p>
-		 Nome livro<br>
-		 <input type="text" name="nome"><br>
-		 Materia<br>
-         <input type="text" name="materia"><br>
-		 Autor<br>
-		 <input type="text" name="autor"> <br>
-		 <input type="submit" value="Pesquisar">
-          </form>
+     <form action="DustyBookPesquisaSession.php" method="POST">
+         <p><b>Pesquisar Livro</b></p>
+		     <br><b>Nome do livro:</b><br>
+		     <input type="text" name="nome"><br>
+		     <br><b>Materia:</b><br>
+             <input type="double" name="materia"><br>
+		     <br><b>Autor:</b><br>
+		     <input type="text" name="autor"><br>
+             <br>
+		     <button class="button">Pesquisar</button>
+        </br>
+      </form>
    </div>
    
    <div class="grid-item item9">
          <h1>Sugestoes</h1>
 		 <br>
 		 <form action="DustyBookSugestoes.php" method="POST">
+		 <select name="tipo" >
+         <option type="radio" value= "elogio" > Elogio </option>
+         <option type="radio" value= "reclamacao" > Reclamaçao </option>
+         </select><br>
          Nome:<br>
          <input type="text" name="nome"><br>
 		 Email:<br>

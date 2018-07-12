@@ -7,7 +7,7 @@ $usuario=$_POST['login'];
 $senha=$_POST['senha'];
 
 
-		$result_usuario = "SELECT * FROM usuarios WHERE email LIKE '%".$usuario."%' AND senha LIKE'%".$senha."%'  ";
+		$result_usuario = "SELECT * FROM usuarios WHERE email = '$usuario' && senha = '$senha' ";
 		$resultado_usuario = mysqli_query($link, $result_usuario);
 		$resultado = mysqli_fetch_object($resultado_usuario);
 		
@@ -18,14 +18,17 @@ $senha=$_POST['senha'];
 			$_SESSION['login'] = $resultado->email;
 			$_SESSION['senha'] = $resultado->senha;
 			$_SESSION['nome'] = $resultado->nome;
-			//echo $_SESSION['login'];
-			//echo $_SESSION['senha'];
-			//echo $_SESSION['nome'];
-			echo "<script>alert('login efetuado com sucesso!');";
-            echo "location.href='DustyBookPaginaPrincipal.php'</script>";
+			$_SESSION['id_usuario']=$resultado->id;
+			
+			if($resultado->adm == 1){
+				$_SESSION['adm']=$resultado->adm;
+			}else{
+				$_SESSION['adm']= NULL;
+			}
+		   echo "<script>alert('login efetuado com sucesso!');";
+           echo "location.href='DustyBookPaginaPrincipal.php'</script>";
 		}else{	
 		   echo "<script>alert('Login ou senha errados!');";
-           echo "location.href='DustyBookPaginaPrincipal.php'</script>"; 
-		}
+		   echo "location.href='DustyBookPaginaPrincipal.php'</script>"; }
 		
 ?>
