@@ -60,8 +60,9 @@ include_once("DustyBookConexao.php");
 		$pesquisa= "SELECT *FROM livros LIMIT $inicio,$result_pg";
 		$array_pesquisa=mysqli_query($link,$pesquisa);
 		while ($row_livro = mysqli_fetch_object($array_pesquisa)){
+			$foto= "fotos/".$row_livro->fotol; 
 			echo "comentario:  ",$row_livro->comentariol,"<br>";
-		    echo "<img src=".$row_livro->fotol. " width='85' height='85'  /><br />";
+		    echo "<img src= '$foto' alt='$row_livro->fotol' width='200' height='150'><br />";
 			echo "livro:",       $row_livro->nomel ,"<br>";
             echo "autor:  "   ,  $row_livro->autorl ,"<br>";
             echo "edicao:  "  ,  $row_livro->edl    ,"<br>";
